@@ -4,7 +4,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import springfox.documentation.annotations.ApiIgnore;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.AuthorizationScopeBuilder;
@@ -25,24 +24,21 @@ import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger.web.SecurityConfiguration;
 import springfox.documentation.swagger.web.SecurityConfigurationBuilder;
-import springfox.documentation.swagger1.annotations.EnableSwagger;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import springfox.petstore.controller.PetController;
 import springfox.petstore.controller.PetStoreResource;
 import springfox.petstore.controller.UserController;
-import springfoxdemo.boot.swagger.web.HomeController;
 
-import javax.print.Doc;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.Predicate;
 
-import static springfox.documentation.builders.PathSelectors.*;
+import static springfox.documentation.builders.PathSelectors.ant;
+import static springfox.documentation.builders.PathSelectors.regex;
 
 @SpringBootApplication
-@EnableSwagger //Enable swagger 1.2 spec
-@EnableSwagger2 //Enable swagger 2.0 spec
+//@EnableSwagger //Enable swagger 1.2 spec
+//@EnableSwagger2 //Enable swagger 2.0 spec
 @EnableOpenApi //Enable open api 3.0.3 spec
 public class Application {
   public static void main(String[] args) {
@@ -66,7 +62,7 @@ public class Application {
 
   @Bean
   public Docket petApi() {
-    return new Docket(DocumentationType.SWAGGER_2)
+    return new Docket(DocumentationType.OAS_30)
         .groupName("full-petstore-api")
         .apiInfo(apiInfo())
         .select()
@@ -78,7 +74,7 @@ public class Application {
 
   @Bean
   public Docket categoryApi() {
-    return new Docket(DocumentationType.SWAGGER_2)
+    return new Docket(DocumentationType.OAS_30)
         .groupName("category-api")
         .apiInfo(apiInfo())
         .select()
@@ -90,7 +86,7 @@ public class Application {
 
   @Bean
   public Docket multipartApi() {
-    return new Docket(DocumentationType.SWAGGER_2)
+    return new Docket(DocumentationType.OAS_30)
         .groupName("multipart-api")
         .apiInfo(apiInfo())
         .select()

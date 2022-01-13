@@ -8,7 +8,10 @@ A spring boot application with both swagger 1.2, 2.0 and 3.0 api documentation e
 ```
 
 ## Paths
-- All Swagger Resources(groups) `http://localhost:8080/springfox/swagger-resources`
-- Swagger UI endpoint: `http://localhost:8080/springfox/swagger-ui/index.html`
+- All Swagger Resources(groups) 
+  http://localhost:8080/springfox/swagger-resources
+
+- Swagger UI endpoint:
+  http://localhost:8080/springfox/swagger-ui/index.html
 
 
